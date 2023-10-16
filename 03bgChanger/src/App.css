@@ -1,0 +1,36 @@
+.bg-red{
+  background-color: red;
+}
+
+.bg-blue{
+  background-color: blue;
+}
+
+.bg-black{
+  background-color: black;
+}
+
+.bg-yellow{
+  background-color: yellow;
+}
+
+.bg-orange{
+  background-color: orange;
+}
+
+.bg-aqua{
+  background-color: aqua;
+}
+
+.bg-blueviolet{
+  background-color: blueviolet;
+}
+
+.main-page{
+  height: 100vh;
+  width: 100vw;
+}
+
+.footer{
+
+}

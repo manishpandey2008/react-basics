@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import TopNave from './components/top-nav/TopNav'
 import SideNave from './components/sid-nav/SideNave'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,10 +17,11 @@ function App() {
             <SideNave />
           </div>
           <div className='main-body'>
-            This is Main Body
+            CreatedComponent
           </div>
       </div>
     </div>
+   
   )
 }
 

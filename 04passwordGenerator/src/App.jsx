@@ -1,33 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [length, setLength] = useState(0)
+  const [isNumber, setIsNumber] = useState(false)
+  const [isString, setIsString] = useState(false)
+  const [password, setPaassword] = useState()
+
+  const passwordGenerator=useCallback(()=>{
+    let fixedChars="Thiscorrelationchartillustrateshow";
+    if(isNumber)fixedChars+="1234567890";
+    if(isString)fixedChars+="!@#$%^&*()";
+    let char="";
+    for(let i=0;i<length;i++){
+      const index=Math.floor(Math.random() * fixedChars.length+1)
+      char+=fixedChars[index];
+    }
+    setPaassword(char);
+  },[length,isNumber,setPaassword])
+
+  useEffect(()=>{passwordGenerator()},[length,isNumber,isString,passwordGenerator])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>Password Generator</h1>
+      <div className='input-wrapper2'>
+        <div className='input-area'>
+            <div className="input-wrapper">
+              <input readOnly 
+                type="text" 
+                className="input" 
+                value={password} 
+                />
+              <button className="copy-btn">Copy</button>
+            </div>
+        </div>
+        <div className='tools'>
+          <div className='range-class'>
+            <input type="range" min={0}
+            max={100}
+            value={length}  
+            onChange={(e)=>setLength(e.target.value)}
+            />
+             <label htmlFor="isNumber" >Lenth : {length}</label>
+          </div>
+          <div className=''>
+            <input 
+            type="checkbox" 
+            defaultChecked={isNumber}
+            onChange={()=> setIsNumber((pre)=>!pre)} 
+            />
+            <label htmlFor="isNumber" >Number is {isNumber}</label>
+          </div>
+          <div>
+            <input type="checkbox" 
+            defaultChecked={isString}
+            onChange={()=> setIsString((pre)=>!pre)} 
+            />
+            <label htmlFor="string">String is {isString}</label>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

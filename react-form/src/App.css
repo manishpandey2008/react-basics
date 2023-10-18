@@ -1,0 +1,14 @@
+.form-container{
+  width: fit-content;
+  padding: 2rem;
+  background-color: #abcdef;
+}
+
+.field-container{
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.input{
+  padding: 0.5rem;
+}

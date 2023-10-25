@@ -1,0 +1,41 @@
+.list-wrapper{
+    padding: 1rem;
+    min-height: 10rem;
+    background-color: #abcdef;
+    width: 30%;
+}
+
+.list-item{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+.DONE{
+    background-color: rgb(183, 248, 183);
+    color: green;
+}
+
+.INPROGRESS{
+    background-color: rgb(241, 241, 177);
+    color: rgb(73, 73, 8);
+}
+
+.TODO{
+    background-color: rgb(184, 182, 182);
+    color: gray;
+}
+
+.DELETED{
+    background-color: rgb(247, 181, 181);
+    color: red;
+}
+
+.list-item img{
+    height: 1.25rem;
+    cursor: pointer;
+}
